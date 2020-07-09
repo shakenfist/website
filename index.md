@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+# Shaken Fist, a minimal cloud aimed at small and edge deployments
 
-You can use the [editor on GitHub](https://github.com/shakenfist/website/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+For at least six months I’ve felt the desire for a simpler cloud orchestration layer — both for my own personal uses, and also as a test bed for ideas for what a smaller, simpler cloud might look like. My personal use case involves a relatively small environment which echos what we now think of as edge compute — less than 10 RU of machines with a minimum of orchestration and management overhead.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+At the time that I was thinking about these things, the Australian bushfires and COVID-19 came along, and presented me with a lot more spare time than I had expected to have. While I’m still blessed to be employed, all of my social activities have been cancelled, so I find myself at home at a loose end on weekends and evenings a lot more than before.
 
-### Markdown
+Thus Shaken Fist was born — named for a Simpson’s meme, Shaken Fist is a deliberately small and highly opinionated cloud implementation aimed at working well in small deployments such as homes, labs, edge compute locations, deployed systems, and so forth.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I’d taken a bit of trouble with each feature in Shaken Fist to think through what the simplest and highest value way of doing something is. For example, instances always get a config drive and there is no metadata server. There is also only one supported type of virtual networking, and one supported hypervisor. That said, this means Shaken Fist is less than 5,000 lines of code, and small enough that new things can be implemented very quickly by a single middle aged developer.
 
-```markdown
-Syntax highlighted code block
+I think Shaken Fist is useful to others. Its apache2 licensed, and available on github if you’re interested.
 
-# Header 1
-## Header 2
-### Header 3
+## I'd like to subscribe to your newsletter
 
-- Bulleted
-- List
+First off, we don't have a newsletter. That said, updates will be announced here as they happen. What we do have is useful links:
 
-1. Numbered
-2. List
+* [The Shaken Fist github repository](http://github.com/shakenfist/shakenfist) is where the code for the server is. At the moment the python API client and command line client live there too, but that will change sometime in the future.
+* [The golang client github repository](http://github.com/shakenfist/client-go) contains... wait for it... the golang client library.
+* [The terraform provider github repository](http://github.com/shakenfist/terraform-provider-shakenfist) has a Terraform provider for Shaken Fist which uses the golang client.
+* [The deploy repository](http://github.com/shakenfist/deploy) is the installer code for Shaken Fist, and probably a good place to start.
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shakenfist/website/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Documentation for developers of Shaken Fist
+* We have [release documentation](release_process.md). We found this mildly surprising too.
