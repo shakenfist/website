@@ -30,14 +30,9 @@ In the shakenfist/shakenfist repo:
 pip install --upgrade readme-renderer
 pip install --upgrade twine
 rm -f dist/*
+git tag -s v0.1 -m "Release v0.1"
 python3 setup.py sdist bdist_wheel
 twine check dist/*
-```
-
-Tag the release, and push it to github:
-
-```
-git tag -s v0.1 -m "Release v0.1"
 git push origin v0.1
 ```
 
