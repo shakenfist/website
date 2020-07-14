@@ -5,8 +5,7 @@ Shaken Fist is now split across a number of repositories to simplify development
 Unfortunately, that complicated the release process. This page documents the current release
 process.
 
-Stage 1: Testing
-----------------
+## Step 1: Testing
 
 Before release, you should ensure that all of the clouds currently supported in the deploy
 repository work. These are important to new users and testers, so we should keep them working.
@@ -22,34 +21,49 @@ Note that to test these you need access to all those clouds, as well as needing 
 cloud specific values for each cloud. Unfortunately I can't tell you those because they vary
 with your specific cloud accounts.
 
-Stage 2: Tag and release shakenfist/shakenfist
-----------------------------------------------
+## Step 2: ```shakenfist/shakenfist```
+
+Test that pypi will accept Markdown formatted README.
+
+In the shakenfist/shakenfist repo:
+```
+pip install --upgrade readme-renderer
+pip install --upgrade twine
+rm -f dist/*
+python3 setup.py sdist bdist_wheel
+twine check dist/*
+```
 
 Tag the release, and push it to github:
 
 ```
-git tag -s 0.1 -m "Release v0.1"
-git push origin 0.1
+git tag -s v0.1 -m "Release v0.1"
+git push origin v0.1
 ```
 
 Create the branch for cherry picks and minor releases:
 
 ```
-git checkout -b 0.1-devel
-git push origin 0.1-devel
+git checkout -b v0.1-devel
+git push origin v0.1-devel
 ```
 
-Stage 3: Tag and release shakenfist/deploy and shakenfist/client-go
--------------------------------------------------------------------
+## Step 3: ```shakenfist/client-go```
+Tag and release as per shakenfist/shakenfist
 
-As for shakenfist/shakenfist, but in the different repos.
+Golang modules require an "annotated git tag" (not a lightweight git tag). Therefore use the sign option (```-s```) as above, or use the annotate option (```-a```) of ```git tag```.
 
-Stage 4: Bump dependancy in shakenfist/terraform-provider-shakenfist, and then release
---------------------------------------------------------------------------------------
+<b>Note</b> that the Github website interface will create lightweight tags. Therefore tag locally and push to Github.
 
-Bump the version number client-go in go.mod, and then release as per above.
 
-TODO
-----
+## Step 4: ```shakenfist/deploy```
 
-We should be pushing to pypi as well.
+Tag and release as per shakenfist/shakenfist.
+
+
+## Step 5: ```shakenfist/terraform-provider-shakenfist```
+
+* Bump dependency in go.mod
+* Tag and release
+
+Set the version number of github.com/shakenfist/client-go in the go.mod file to the new release version. Then tag and release as per shakenfist/shakenfist.
