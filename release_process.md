@@ -34,6 +34,7 @@ git tag -s v0.1 -m "Release v0.1"
 python3 setup.py sdist bdist_wheel
 twine check dist/*
 git push origin v0.1
+twine upload dist/*
 ```
 
 Create the branch for cherry picks and minor releases:
