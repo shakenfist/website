@@ -45,11 +45,13 @@ git push origin v0.1-devel
 ```
 
 ## Step 3: ```shakenfist/client-go```
-Tag and release as per shakenfist/shakenfist
+Tag and release as per shakenfist/shakenfist - include the patch number eg. v0.1.0
 
 Golang modules require an "annotated git tag" (not a lightweight git tag). Therefore use the sign option (```-s```) as above, or use the annotate option (```-a```) of ```git tag```.
 
 <b>Note</b> that the Github website interface will create lightweight tags. Therefore tag locally and push to Github.
+
+<b>IMPORTANT:</b> Golang modules require the full X.Y.Z sermver version eg. v0.2.0 (Otherwise go will attach the wrong version numbers to fetches and update go.mod incorrectly.)
 
 
 ## Step 4: ```shakenfist/deploy```
