@@ -19,5 +19,17 @@ First off, we don't have a newsletter. That said, updates will be announced here
 * [The terraform provider github repository](http://github.com/shakenfist/terraform-provider-shakenfist) has a Terraform provider for Shaken Fist which uses the golang client.
 * [The deploy repository](http://github.com/shakenfist/deploy) is the installer code for Shaken Fist, and probably a good place to start.
 
+## Release changelogs
+
+Version v0.2 was when we started taking releases and upgrades seriously. Thus, its also when we started writing changelogs:
+
+* [v0.2 series](changelog_v02.md)
+
+## API documentation
+
+There is some limited API documentation, its definitely a known gap.
+
+* [The power states an instance can be in](power_states.md)
+
 ## Documentation for developers of Shaken Fist
 * We have [release documentation](release_process.md). We found this mildly surprising too.
