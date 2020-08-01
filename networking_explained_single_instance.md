@@ -9,7 +9,7 @@ Let's assume you want a new virtual network with no network services. Its just t
 The basic flow is like this -- you create a virtual network. We allocate you a VXLAN network id (called the vxid in various places in the code):
 
 ```
-sf-1 sf-client network create 192.168.0.0/24 demonet --no-dhcp --no-nat
+sf-1 # sf-client network create 192.168.0.0/24 demonet --no-dhcp --no-nat
 uuid            : b41b067a-44b7-40c5-9ab8-7abdcf5fdc61
 name            : demonet
 vxlan id        : 2
@@ -26,7 +26,7 @@ Metadata:
 So in this case we were allocated VXLAN id 2, and have a network UUID of b41b067a-44b7-40c5-9ab8-7abdcf5fdc61. The state of the network is "initial" as it has not been created anywhere yet. If you wait a few seconds, you'll see it transition to a "created" state. You can see the new state with a show command:
 
 ```
-sf-1 # # sf-client network show b41b067a-44b7-40c5-9ab8-7abdcf5fdc61
+sf-1 # sf-client network show b41b067a-44b7-40c5-9ab8-7abdcf5fdc61
 uuid            : b41b067a-44b7-40c5-9ab8-7abdcf5fdc61
 name            : demonet
 vxlan id        : 2
@@ -129,7 +129,7 @@ The veth between the VXLAN mesh and this namespace is named veth-2-i (the interf
 We also do some things with iptables, especially around NAT. Here's the current state of iptables in the network namespace:
 
 ```
-sf-1 # # ip netns exec b41b067a-44b7-40c5-9ab8-7abdcf5fdc61 iptables -L -t nat
+sf-1 # ip netns exec b41b067a-44b7-40c5-9ab8-7abdcf5fdc61 iptables -L -t nat
 Chain PREROUTING (policy ACCEPT)
 target     prot opt source               destination         
 
@@ -221,7 +221,7 @@ sf-2 # ip addr show br-vxlan-2
 And the mesh looks like this:
 
 ```
-sf-2 # # bridge fdb show brport vxlan-2
+sf-2 # bridge fdb show brport vxlan-2
 0a:ce:c4:f7:cb:dc master br-vxlan-2 permanent
 0a:ce:c4:f7:cb:dc vlan 1 master br-vxlan-2 permanent
 00:00:00:00:00:00 dst 10.2.1.11 self permanent
