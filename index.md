@@ -33,3 +33,4 @@ There is some limited API documentation, its definitely a known gap.
 
 ## Documentation for developers of Shaken Fist
 * We have [release documentation](release_process.md). We found this mildly surprising too.
+* Everyone is confused by the networking, so we wrote some [networking documentation](networking_explained.md). Hopefully it helps.
