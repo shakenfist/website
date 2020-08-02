@@ -1,3 +1,33 @@
+Changes between v0.2.3 and v0.2.4
+=================================
+
+v0.2.4 was released on 2 August 2020.
+
+* Remove stray networks when detected. [Bug 161](https://github.com/shakenfist/shakenfist/issues/161).
+* Display video details of an instance in sf-client. [Bug 216](https://github.com/shakenfist/shakenfist/issues/216).
+* The login prompt trigger is now more reliable. [Bug 223](https://github.com/shakenfist/shakenfist/issues/223).
+* Rapid creates from terraform can crash Shaken Fist with a race condition. [Bug 225](https://github.com/shakenfist/shakenfist/issues/225).
+* Instance deletes could leave internal IP addresses allocated to deleted instances. [Bug 227](https://github.com/shakenfist/shakenfist/issues/227).
+* sf-client now displays network card model. [Bug 228](https://github.com/shakenfist/shakenfist/issues/228).
+* Missing node metrics could cause a scheduler crash. [Bug 236](https://github.com/shakenfist/shakenfist/issues/236).
+* A missing import caused a scheduler crash. [Bug 237](https://github.com/shakenfist/shakenfist/issues/236).
+* You can now list the instances on a network with sf-client. [Bug 240](https://github.com/shakenfist/shakenfist/issues/240).
+* Disabling DHCP for networks did not work correctly. [Bug 245](https://github.com/shakenfist/shakenfist/issues/245).
+* Ubuntu 18.04's cloud-init would issue warnings about network interface types. [Bug 250](https://github.com/shakenfist/shakenfist/issues/250).
+* Network interfaces were sometimes leaked. [Bug 252](https://github.com/shakenfist/shakenfist/issues/252).
+* sf-client would sometimes crash if the disk bus was the default. [Bug 253](https://github.com/shakenfist/shakenfist/issues/253).
+* Load balancers were causing annoying log messages which have been demoted to debug level. [Bug 258](https://github.com/shakenfist/shakenfist/issues/258).
+
+Changes between v0.2.2 and v0.2.3
+=================================
+
+v0.2.3 was released on 25 July 2020.
+
+* Run CI tests multiple times to try and shake out timing errors. [Bug 191](https://github.com/shakenfist/shakenfist/issues/191).
+* Be more flexible in what VDI video configurations we allow. [Bug 201](https://github.com/shakenfist/shakenfist/issues/201).
+* Log power state changes as instance events. [Bug 203](https://github.com/shakenfist/shakenfist/issues/203).
+* Handle bad video card choices more gracefully. [Bug 219](https://github.com/shakenfist/shakenfist/issues/219).
+
 Changes between v0.2.1 and v0.2.2
 =================================
 
