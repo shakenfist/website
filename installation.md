@@ -39,3 +39,77 @@ If you want to install a specific release, you can set the RELEASE environment v
 * Any valid pypi release version number.
 * "git:master" for the current master branch of each repository.
 * "git:branch" for a specific branch. If that branch does not exist in a given repository, master is used instead.
+
+## Starting your first instance
+
+Before you can start your first instance you'll need to authenticate to Shaken Fist, and create a network. Shaken Fist's python api client (as used by the command line client) looks for authentication details in the following locations:
+
+* command line flags
+* environment variables
+* ~/.shakenfist, a JSON formatted configuration file
+* /etc/sf/shakenfist.json, the same file as above, but global
+
+By default the installer creates /etc/sf/sfrc, which is an example of how to use environment variables to authenticate. It is customized per installation, but sets the following variables:
+
+* SHAKENFIST_NAMESPACE, the namespace to create resources in
+* SHAKENFIST_KEY, an authentication key for that namespace
+* SHAKENFIST_API_URL, a URL to the Shaken Fist API server
+
+So, to interact with Shaken Fist, we need to source that rc file. We will then create a simple first network:
+
+```bash
+. /etc/sf/sfrc
+sf-client network create 192.168.42.0/24 mynet
+```
+
+You can get help for the command line client by running ```sf-client --help``. The above command creates a new network called "mynet", with the IP block 192.168.42.0/24. You will receive some descriptive output back:
+
+```bash
+$ sf-client network create 192.168.42.0/24 mynet
+uuid            : 16baa325-5adf-473f-8e7a-75710a822d45
+name            : mynet
+vxlan id        : 2
+netblock        : 192.168.42.0/24
+provide dhcp    : True
+provide nat     : True
+floating gateway: None
+namespace       : system
+state           : initial
+
+Metadata:
+```
+
+The UUID is important, as that is how we will refer to the network elsewhere. Let's now create a simple first instance (you'll need to change this to use your actual network UUID):
+
+```bash
+$ sf-client instance create myvm 1 1024 -d 8@cirros -n 16baa325-5adf-473f-8e7a-75710a822d45
+uuid        : c6c4ba94-ed34-497d-8964-c223489dee3e
+name        : myvm
+namespace   : system
+cpus        : 1
+memory      : 1024
+disk spec   : type=disk   bus=None  size=8   base=cirros  
+video       : model=cirrus  memory=16384  
+node        : marvin
+power state : on
+state       : created
+console port: 31839
+vdi port    : 34442
+
+ssh key     : None
+user data   : None
+
+Metadata:
+
+Interfaces:
+
+    uuid    : e56b3c7b-8056-4645-b5b5-1779721ff21d
+    network : 16baa325-5adf-473f-8e7a-75710a822d45
+    macaddr : ae:15:4d:9c:d8:c0
+    order   : 0
+    ipv4    : 192.168.42.76
+    floating: None
+    model   : virtio
+```
+
+Probably the easiest way to interact with this instance is to connect to its console port, which is the serial console of the instance over telnet. In the case above, that is available on port 31829 on localhost (my laptop is called marvin).
