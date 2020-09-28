@@ -1,3 +1,35 @@
+Changes between v0.2.7 and v0.2.8
+=================================
+
+v0.2.8 has not yet been released.
+
+* Allow the setting of numeric configuration values. [Bug 324](https://github.com/shakenfist/shakenfist/issues/324).
+* Backing file information must be provided with modern libvirts. [Bug 326](https://github.com/shakenfist/shakenfist/issues/326).
+
+
+Changes between v0.2.6 and v0.2.7
+=================================
+
+v0.2.7 was released on 26 September 2020.
+
+* Fix import error in scheduler.py
+
+Changes between v0.2.5 and v0.2.6
+=================================
+
+v0.2.6 was released on 26 September 2020.
+
+* Fix typo in gunicorn command line.
+
+Changes between v0.2.4 and v0.2.5
+=================================
+
+v0.2.5 was released on 3 August 2020.
+
+* API requests without a JSON payload fail when made to a non-network node. [Bug 261](https://github.com/shakenfist/shakenfist/issues/261).
+* Resolve error during instance start. [Bug 263](https://github.com/shakenfist/shakenfist/issues/263).
+* Resolve a crash in the network monitor. [Bug 264](https://github.com/shakenfist/shakenfist/issues/264).
+
 Changes between v0.2.3 and v0.2.4
 =================================
 

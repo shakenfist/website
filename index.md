@@ -14,16 +14,39 @@ I think Shaken Fist is useful to others. Its apache2 licensed, and available on 
 
 First off, we don't have a newsletter. That said, updates will be announced here as they happen. What we do have is useful links:
 
-* [The Shaken Fist github repository](http://github.com/shakenfist/shakenfist) is where the code for the server is. At the moment the python API client and command line client live there too, but that will change sometime in the future.
-* [The golang client github repository](http://github.com/shakenfist/client-go) contains... wait for it... the golang client library.
-* [The terraform provider github repository](http://github.com/shakenfist/terraform-provider-shakenfist) has a Terraform provider for Shaken Fist which uses the golang client.
-* [The deploy repository](http://github.com/shakenfist/deploy) is the installer code for Shaken Fist, and probably a good place to start.
+* [The deploy repository](http://github.com/shakenfist/deploy) is the installer code for Shaken Fist, and probably a good place to start, especially if you just want to use Shaken Fist and not contribute code to it.
+
+* [The Shaken Fist repository](http://github.com/shakenfist/shakenfist) is where the code for the server is.
+
+* There are a series of client repositories as well:
+    * [The python client repostiory](http://github.com/shakenfist/client-python) contains the python API client, as well as the command line client that users and shell scripts use to interact with Shaken Fist.
+    * [The golang client repository](http://github.com/shakenfist/client-go) contains... wait for it... the golang client library. This is used by the terraform provider.
+    * [The javascript client repository](http://github.com/shakenfist/client-js) contains... wait for it... a javascript client library. It should be noted that this client is currently incomplete.
+
+* [The terraform provider repository](http://github.com/shakenfist/terraform-provider-shakenfist) has a Terraform provider for Shaken Fist which uses the golang client.
+
+* [The ansible modules repository](http://github.com/shakenfist/ansible-modules) contains a few simple modules for using Shaken Fist in ansible roles and plays.
+
+* [The website repository](http://github.com/shakenfist/website) is this website.
+
+We also have a few "more internal" respositories:
+
+* [The loadtest repository](http://github.com/shakenfist/loadtest) contains a simpler load tester we use for validating releases.
+
+* [The reproducables repository](http://github.com/shakenfist/reproducables) contains simple test cases for reproducing strange behaviours we have seen while developing Shaken Fist.
+
+## New user guides
+
+We need more of these. For now, we have the following:
+
+* [An installation guide](installation.md)
 
 ## Release changelogs
 
 Version v0.2 was when we started taking releases and upgrades seriously. Thus, its also when we started writing changelogs:
 
 * [v0.2 series](changelog_v02.md)
+* [v0.3 series](changelog_v03.md)
 
 ## API documentation
 
